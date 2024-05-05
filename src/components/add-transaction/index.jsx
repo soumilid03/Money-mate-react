@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { useContext } from "react";
 import { GlobalContext } from "../../context";
+import { px } from "framer-motion";
 
 export default function TransactionForm({ onClose, isOpen }) {
   const { formData, setFormData, value, setValue, handleFormSubmit } =
@@ -62,13 +63,14 @@ export default function TransactionForm({ onClose, isOpen }) {
               <Radio
                 checked={formData.type === "income"}
                 value="income"
-                colorScheme="blue"
+                colorScheme="green"
                 name="type"
                 onChange={handleFormChange}
               >
                 Income
               </Radio>
               <Radio
+              ml="1"
                 checked={formData.type === "expense"}
                 value="expense"
                 colorScheme="red"

@@ -15,7 +15,7 @@ export default function ExpenseView({ type, data }) {
       borderRadius={"12"}
     >
       <Flex justifyContent={"space-between"} alignItems={"center"}>
-        <Heading size={"md"} color={"red.700"}>
+        <Heading size={"md"} color={type ==="income" ? "#38A169" : "#F56565"}>
           {type === "income" ? "Income" : "Expense"}
         </Heading>
       </Flex>
@@ -36,7 +36,7 @@ export default function ExpenseView({ type, data }) {
                 {item.description}
               </Text>
             </Flex>
-            <Text>$ {item.amount}</Text>
+            <Text>₹ {item.amount}</Text>
           </Flex>
         </>
       ))}

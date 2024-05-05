@@ -4,6 +4,7 @@ import ExpenseView from "../expense-view";
 import { useContext, useEffect } from "react";
 import { GlobalContext } from "../../context";
 
+
 export default function Main() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
@@ -13,6 +14,10 @@ export default function Main() {
     totalIncome,
     setTotalIncome,
   } = useContext(GlobalContext);
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   useEffect(() => {
     let income = 0;
@@ -28,19 +33,26 @@ export default function Main() {
     setTotalIncome(income);
   }, [allTransactions]);
 
+  
+
   return (
     <Flex textAlign={"center"} flexDirection={"column"} pr={"5"} pl={"5"}>
       <Flex alignItems={"center"} justifyContent={"space-between"} mt={"12"}>
         <Heading
-          color={"blue.400"}
+          fontFamily={"Montserrat"}
+          fontWeight={550}
+          color={"#0987A0"}
           display={["none", "block", "block", "block", "block"]}
         >
-          Expense Tracker
+          Money Mate
         </Heading>
         <Flex alignItems={"center"}>
-          <Button onClick={onOpen} bg={"blue.300"} color={"black"} ml={"4"}>
+        <Button onClick={onOpen} bg={"#086F83"} color={"white"} ml={"4"}>
             Add New Transaction
           </Button>
+        <Button onClick={refreshPage} bg={"#086F83"} color={"white"} ml={"4"}>Reset</Button>
+        
+
         </Flex>
       </Flex>
       <Summary
